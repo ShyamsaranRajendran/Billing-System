@@ -65,7 +65,7 @@ const Landing = () => {
             ZEIL Invoice offers a hassle-free billing solution for your <br />
             business. From managing invoices to sending payment reminders and{" "}
             <br />
-            getting paid online, Zoho Invoice supports all the features required
+            getting paid online, ZEIL Invoice supports all the features required
             <br />
             to manage your billing processes.
           </div>

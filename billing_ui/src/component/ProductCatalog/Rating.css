@@ -1,0 +1,32 @@
+.rating {
+  display: flex;
+  font-size: 1.5em;
+  color: #FFD700; /* Gold color for stars */
+}
+
+.star {
+  margin: 0 2px;
+}
+
+.full {
+  color: #FFD700; /* Gold color for filled stars */
+}
+
+.half {
+  position: relative;
+  color: #FFD700;
+}
+
+.half::before {
+  content: '★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #FFD700; /* Gold color for filled stars */
+  width: 50%;
+  overflow: hidden;
+}
+
+.empty {
+  color: #e0e0e0; /* Light gray color for empty stars */
+}

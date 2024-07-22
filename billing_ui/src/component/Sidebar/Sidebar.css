@@ -1,9 +1,12 @@
 .Sidebar {
   width: 250px;
-  height: 100%;
-  background-color: rgb(241,99,52);
+  height: auto;
+  background-color: rgb(241, 99, 52);
   color: #fff;
   padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
 .title-billing {
@@ -15,6 +18,7 @@
 .sidebar-nav {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar-nav li {
@@ -28,14 +32,15 @@
   color: #fff;
   text-decoration: none;
   transition: background-color 0.3s;
+  border-radius: 20px;
 }
 
 .sidebar-nav a:hover {
-  background-color: #FFA500
+  background-color: #ffa500;
 }
 
 .sidebar-nav .active-link {
-  background-color: #f16334;
+  background-color: #ff0000;
   font-weight: bold;
 }
 

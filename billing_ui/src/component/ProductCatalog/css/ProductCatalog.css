@@ -1,0 +1,65 @@
+/* Container for product cards */
+.product-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Common styles for suggester and products */
+.suggester,
+.products {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  border-bottom: 2px solid black;
+  overflow-x: auto; /* Horizontal scrolling for both */
+  scrollbar-width: thin; /* Firefox scrollbar width */
+  scrollbar-color: #888 #f1f1f1; /* Firefox scrollbar colors */
+}
+
+/* Specific styles for suggester */
+.suggester {
+  flex-wrap: wrap;
+  height: 400px; /* Fixed height for vertical scrolling */
+}
+
+/* Specific styles for products */
+.products {
+  flex: 1.5;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  height: 400px;
+  overflow-y: auto; /* Vertical scrolling for products */
+}
+
+/* Webkit scrollbar styles for both */
+.suggester::-webkit-scrollbar,
+.products::-webkit-scrollbar {
+  width: 12px;
+}
+
+.suggester::-webkit-scrollbar-track,
+.products::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.suggester::-webkit-scrollbar-thumb,
+.products::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.suggester::-webkit-scrollbar-thumb:hover,
+.products::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -2,8 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  
+  box-sizing: border-box;  
 }
 
 /* Container */
@@ -76,8 +75,7 @@ button {
   margin-top: 10px;
 }
 
-button[type="submit"]:hover,
-button:hover {
+button[type="submit"]:hover{
   background-color: #FF8C00;
 }
 
@@ -180,4 +178,8 @@ button:hover {
     border: none;
     color: #f7f5f2;
     background-color: inherit;
+}
+
+.sign-btn-log-btn:hover {
+  text-decoration: underline;
 }

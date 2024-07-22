@@ -18,12 +18,20 @@ const User = () => {
     event.preventDefault();
     setLoading(true);
 
-    const url = isSignUp ? "/signup" : "/login";
+    const url = isSignUp
+      ? "http://localhost:5000/usr/register"
+      : "http://localhost:5000/usr/login";
     const formData = new FormData(event.target);
     const requestBody = {
-      email: formData.get("email"),
+      identifier: formData.get("identifier"), // Changed from 'email' to 'identifier'
       password: formData.get("password"),
-      ...(isSignUp && { repeatPassword: formData.get("repeatPassword") }),
+      ...(isSignUp && {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        username: formData.get("username"),
+        phoneNumber: formData.get("phoneNumber"),
+        confirm_password: formData.get("repeatPassword"),
+      }),
     };
 
     try {
@@ -36,6 +44,8 @@ const User = () => {
       });
 
       if (response.ok) {
+        const responseData = await response.json();
+        localStorage.setItem("authorization", responseData.token);
         toast.success("Success! Redirecting to the dashboard...");
         setTimeout(() => {
           navigate("/dashboard");
@@ -43,7 +53,7 @@ const User = () => {
       } else {
         const errorData = await response.json();
         console.error("Error:", errorData);
-        toast.error("Error: " + errorData.message);
+        toast.error("Error: " + errorData.error);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -67,13 +77,49 @@ const User = () => {
             {isSignUp ? "Create your account" : "Welcome back, now get in here"}
           </p>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your Email"
-              required
-            />
+            {isSignUp && (
+              <>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter your username"
+                  required
+                />
+                <label htmlFor="phoneNumber">Phone Number</label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </>
+            )}
+            {!isSignUp && (
+              <>
+                <label htmlFor="identifier">Email or Username</label>
+                <input
+                  type="text"
+                  name="identifier"
+                  placeholder="Enter your email or username"
+                  required
+                />
+              </>
+            )}
             <label htmlFor="password">Password</label>
             <input
               type="password"
